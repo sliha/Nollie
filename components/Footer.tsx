@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { GLOVO_URL } from "@/lib/constants";
 
 export default function Footer() {
   return (
@@ -27,9 +28,20 @@ export default function Footer() {
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-nollie-cream/40">
             <Link href="/" className="hover:text-nollie-gold transition-colors">Início</Link>
             <Link href="/menu" className="hover:text-nollie-gold transition-colors">Menu</Link>
+            <a href="#encomendar" className="hover:text-nollie-gold transition-colors">Encomendar</a>
             <a href="#reservas" className="hover:text-nollie-gold transition-colors">Reservar</a>
             <a href="#contacto" className="hover:text-nollie-gold transition-colors">Contacto</a>
           </div>
+
+          {/* Glovo delivery badge */}
+          <a
+            href={GLOVO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#00A082]/10 hover:bg-[#00A082]/20 border border-[#00A082]/25 hover:border-[#00A082]/50 rounded-full text-[#00A082] text-xs font-medium transition-all duration-300 hover:scale-105"
+          >
+            🛵 Entregas via Glovo
+          </a>
 
           {/* Divider */}
           <div className="w-full border-t border-nollie-gold/10" />

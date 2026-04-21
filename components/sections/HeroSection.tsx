@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { GLOVO_URL } from "@/lib/constants";
 
 const HERO_BG = "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1920&q=80";
 
@@ -60,7 +61,7 @@ export default function HeroSection() {
 
         {/* CTAs */}
         <div
-          className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up"
+          className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center animate-fade-up"
           style={{ animationDelay: "0.8s", opacity: 0 }}
         >
           <Link
@@ -74,6 +75,14 @@ export default function HeroSection() {
             className="px-8 py-3.5 border border-nollie-gold/60 hover:border-nollie-gold text-nollie-cream hover:text-nollie-gold font-medium rounded-full transition-all duration-300 hover:scale-105 tracking-wider text-sm uppercase backdrop-blur-sm"
           >
             Reservar Mesa
+          </a>
+          <a
+            href={GLOVO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-3.5 bg-[#00A082] hover:bg-[#00b893] text-white font-medium rounded-full transition-all duration-300 hover:scale-105 tracking-wider text-sm uppercase shadow-lg shadow-[#00A082]/20"
+          >
+            🛵 Encomendar Online
           </a>
         </div>
 

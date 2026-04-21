@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import ReservationWidget from "@/components/ReservationWidget";
+import GlovoWidget from "@/components/GlovoWidget";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nollie.vercel.app"),
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Navbar />
         {children}
         <ReservationWidget />
+        <GlovoWidget />
       </body>
     </html>
   );

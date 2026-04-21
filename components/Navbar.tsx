@@ -21,12 +21,14 @@ export default function Navbar() {
     ? [
         { href: "/", label: "Início" },
         { href: "/menu", label: "Menu" },
+        { href: "/#encomendar", label: "Encomendar", glovo: true },
         { href: "/#reservas", label: "Reservar" },
         { href: "/#contacto", label: "Contacto" },
       ]
     : [
         { href: "#inicio", label: "Início" },
         { href: "/menu", label: "Menu" },
+        { href: "#encomendar", label: "Encomendar", glovo: true },
         { href: "#reservas", label: "Reservar" },
         { href: "#contacto", label: "Contacto" },
       ];
@@ -59,16 +61,26 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-8">
-            {links.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                className="text-sm font-medium text-nollie-cream/80 hover:text-nollie-gold transition-colors duration-300 tracking-wider uppercase gold-underline"
-              >
-                {l.label}
-              </Link>
-            ))}
+          <div className="hidden md:flex items-center gap-6">
+            {links.map((l) =>
+              l.glovo ? (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  className="text-sm font-medium text-[#00A082] hover:text-[#00c9a1] transition-colors duration-300 tracking-wider uppercase"
+                >
+                  🛵 {l.label}
+                </a>
+              ) : (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  className="text-sm font-medium text-nollie-cream/80 hover:text-nollie-gold transition-colors duration-300 tracking-wider uppercase gold-underline"
+                >
+                  {l.label}
+                </Link>
+              )
+            )}
             <a
               href={isMenu ? "/#reservas" : "#reservas"}
               className="px-5 py-2 text-sm font-medium bg-nollie-gold text-nollie-black rounded-full hover:bg-nollie-gold-light transition-all duration-300 hover:scale-105 tracking-wider uppercase"
@@ -108,16 +120,27 @@ export default function Navbar() {
           }`}
         >
           <div className="flex flex-col gap-1 pt-2 border-t border-nollie-gold/20">
-            {links.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                onClick={() => setMenuOpen(false)}
-                className="text-sm font-medium text-nollie-cream/80 hover:text-nollie-gold transition-colors py-3 px-2 tracking-wider uppercase border-b border-white/5"
-              >
-                {l.label}
-              </Link>
-            ))}
+            {links.map((l) =>
+              l.glovo ? (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="text-sm font-medium text-[#00A082] hover:text-[#00c9a1] transition-colors py-3 px-2 tracking-wider uppercase border-b border-white/5"
+                >
+                  🛵 {l.label}
+                </a>
+              ) : (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="text-sm font-medium text-nollie-cream/80 hover:text-nollie-gold transition-colors py-3 px-2 tracking-wider uppercase border-b border-white/5"
+                >
+                  {l.label}
+                </Link>
+              )
+            )}
           </div>
         </div>
       </div>
