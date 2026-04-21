@@ -29,23 +29,6 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
 
-        {/* Logo — container fixo + image centrada com object-contain */}
-        <div className="mb-8 flex justify-center animate-fade-in">
-          <div
-            className="relative flex items-center justify-center rounded-full border-2 border-nollie-gold/40 shadow-2xl shadow-nollie-gold/15 bg-nollie-black/60 overflow-hidden"
-            style={{ width: 120, height: 120 }}
-          >
-            <Image
-              src="/images/logo.png"
-              alt="Nollie Logo"
-              fill
-              className="object-contain p-2"
-              priority
-              sizes="120px"
-            />
-          </div>
-        </div>
-
         {/* Título */}
         <h1
           className="font-playfair text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white mb-3 animate-fade-up tracking-tight"
