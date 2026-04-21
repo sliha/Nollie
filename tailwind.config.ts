@@ -9,8 +9,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        nollie: {
+          black: "#0d0d0d",
+          dark: "#1a1a1a",
+          gold: "#c4a862",
+          "gold-light": "#d4a84b",
+          cream: "#f5f0e1",
+          beige: "#e8dcc8",
+          wine: "#8b2635",
+          white: "#ffffff",
+        },
+      },
+      fontFamily: {
+        playfair: ["Playfair Display", "serif"],
+        sans: ["DM Sans", "Inter", "sans-serif"],
       },
     },
   },
