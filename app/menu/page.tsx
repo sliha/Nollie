@@ -1,6 +1,10 @@
 import Link from "next/link";
 import Footer from "@/components/Footer";
 
+// ── Delivery links ──────────────────────────────────────────────────────────
+const GLOVO_URL = "https://glovoapp.com/pt/pt/lisbon/nollie/";
+const UBEREATS_URL = "https://www.ubereats.com/pt/store/nollie/";
+
 // ── Menu data ──────────────────────────────────────────────────────────────
 
 const antipasti = [
@@ -180,6 +184,29 @@ const cocktails = [
 
 // ── Components ─────────────────────────────────────────────────────────────
 
+function OrderButtons() {
+  return (
+    <div className="flex gap-2 justify-end mt-2.5">
+      <a
+        href={GLOVO_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-1 px-3 py-1 bg-[#00A082] hover:bg-[#00b893] text-white text-xs font-medium rounded-full transition-all duration-200 hover:scale-105 hover:shadow-md hover:shadow-[#00A082]/30"
+      >
+        🛵 Glovo
+      </a>
+      <a
+        href={UBEREATS_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-1 px-3 py-1 bg-[#06C167] hover:bg-[#07d975] text-white text-xs font-medium rounded-full transition-all duration-200 hover:scale-105 hover:shadow-md hover:shadow-[#06C167]/30"
+      >
+        🥡 Uber Eats
+      </a>
+    </div>
+  );
+}
+
 function SectionHeader({ id, title, subtitle }: { id: string; title: string; subtitle?: string }) {
   return (
     <div id={id} className="mb-8 scroll-mt-24">
@@ -202,31 +229,30 @@ function MenuItem({ name, nameEn, desc, descEn, price, tag }: {
   name: string; nameEn?: string; desc?: string; descEn?: string; price: string; tag?: string;
 }) {
   return (
-    <div className="flex gap-4 py-4 border-b border-nollie-gold/8 group hover:bg-nollie-gold/3 rounded-lg px-2 transition-colors">
-      <div className="flex-1 min-w-0">
-        <div className="flex items-baseline gap-2 flex-wrap">
-          <h3 className="text-nollie-cream font-medium text-sm sm:text-base">
-            {name}
-          </h3>
-          {tag && <span className="text-sm">{tag}</span>}
-          {nameEn && nameEn !== name && (
-            <span className="text-nollie-cream/30 text-xs italic">/ {nameEn}</span>
+    <div className="py-4 border-b border-nollie-gold/8 group hover:bg-nollie-gold/3 rounded-lg px-2 transition-colors">
+      {/* Name + price row */}
+      <div className="flex gap-4">
+        <div className="flex-1 min-w-0">
+          <div className="flex items-baseline gap-2 flex-wrap">
+            <h3 className="text-nollie-cream font-medium text-sm sm:text-base">{name}</h3>
+            {tag && <span className="text-sm">{tag}</span>}
+            {nameEn && nameEn !== name && (
+              <span className="text-nollie-cream/30 text-xs italic">/ {nameEn}</span>
+            )}
+          </div>
+          {desc && (
+            <p className="text-nollie-cream/50 text-xs mt-0.5 leading-relaxed">{desc}</p>
+          )}
+          {descEn && descEn !== desc && (
+            <p className="text-nollie-cream/25 text-xs mt-0.5 leading-relaxed italic">{descEn}</p>
           )}
         </div>
-        {desc && (
-          <p className="text-nollie-cream/50 text-xs mt-0.5 leading-relaxed">
-            {desc}
-          </p>
-        )}
-        {descEn && descEn !== desc && (
-          <p className="text-nollie-cream/25 text-xs mt-0.5 leading-relaxed italic">
-            {descEn}
-          </p>
-        )}
+        <div className="flex-shrink-0 text-right">
+          <span className="text-nollie-gold font-semibold text-sm sm:text-base">{price}</span>
+        </div>
       </div>
-      <div className="flex-shrink-0 text-right">
-        <span className="text-nollie-gold font-semibold text-sm sm:text-base">{price}</span>
-      </div>
+      {/* Order buttons */}
+      <OrderButtons />
     </div>
   );
 }
@@ -235,33 +261,43 @@ function WineItem({ name, origin, desc, glass, bottle }: {
   name: string; origin: string; desc: string | null; glass: string | null; bottle: string;
 }) {
   return (
-    <div className="flex gap-4 py-4 border-b border-nollie-gold/8 group hover:bg-nollie-gold/3 rounded-lg px-2 transition-colors">
-      <div className="flex-1 min-w-0">
-        <h3 className="text-nollie-cream font-medium text-sm sm:text-base">{name}</h3>
-        <p className="text-nollie-gold/60 text-xs mt-0.5">{origin}</p>
-        {desc && <p className="text-nollie-cream/40 text-xs mt-0.5 italic">{desc}</p>}
-      </div>
-      <div className="flex-shrink-0 text-right space-y-0.5">
-        {glass && (
+    <div className="py-4 border-b border-nollie-gold/8 group hover:bg-nollie-gold/3 rounded-lg px-2 transition-colors">
+      {/* Name + prices row */}
+      <div className="flex gap-4">
+        <div className="flex-1 min-w-0">
+          <h3 className="text-nollie-cream font-medium text-sm sm:text-base">{name}</h3>
+          <p className="text-nollie-gold/60 text-xs mt-0.5">{origin}</p>
+          {desc && <p className="text-nollie-cream/40 text-xs mt-0.5 italic">{desc}</p>}
+        </div>
+        <div className="flex-shrink-0 text-right space-y-0.5">
+          {glass && (
+            <div className="flex items-center gap-1.5 justify-end">
+              <span className="text-nollie-cream/30 text-xs">copo</span>
+              <span className="text-nollie-gold font-semibold text-sm">{glass}</span>
+            </div>
+          )}
           <div className="flex items-center gap-1.5 justify-end">
-            <span className="text-nollie-cream/30 text-xs">copo</span>
-            <span className="text-nollie-gold font-semibold text-sm">{glass}</span>
+            <span className="text-nollie-cream/30 text-xs">garrafa</span>
+            <span className="text-nollie-gold font-semibold text-sm">{bottle}</span>
           </div>
-        )}
-        <div className="flex items-center gap-1.5 justify-end">
-          <span className="text-nollie-cream/30 text-xs">garrafa</span>
-          <span className="text-nollie-gold font-semibold text-sm">{bottle}</span>
         </div>
       </div>
+      {/* Order buttons */}
+      <OrderButtons />
     </div>
   );
 }
 
 function SimpleItem({ name, price }: { name: string; price: string }) {
   return (
-    <div className="flex justify-between items-center py-3 border-b border-nollie-gold/8 hover:bg-nollie-gold/3 rounded-lg px-2 transition-colors">
-      <span className="text-nollie-cream/80 text-sm">{name}</span>
-      <span className="text-nollie-gold font-semibold text-sm">{price}</span>
+    <div className="py-3 border-b border-nollie-gold/8 hover:bg-nollie-gold/3 rounded-lg px-2 transition-colors">
+      {/* Name + price row */}
+      <div className="flex justify-between items-center">
+        <span className="text-nollie-cream/80 text-sm">{name}</span>
+        <span className="text-nollie-gold font-semibold text-sm">{price}</span>
+      </div>
+      {/* Order buttons */}
+      <OrderButtons />
     </div>
   );
 }
@@ -298,6 +334,18 @@ export default function MenuPage() {
           <p className="text-nollie-cream/60 text-sm">
             Pizza artesanal, vinhos naturais e cocktails clássicos
           </p>
+          {/* Delivery note */}
+          <div className="flex items-center justify-center gap-3 mt-4">
+            <span className="text-nollie-cream/30 text-xs">Encomendar via</span>
+            <a href={GLOVO_URL} target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-3 py-1 bg-[#00A082]/15 hover:bg-[#00A082]/25 border border-[#00A082]/30 text-[#00A082] text-xs font-medium rounded-full transition-all duration-200">
+              🛵 Glovo
+            </a>
+            <a href={UBEREATS_URL} target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-3 py-1 bg-[#06C167]/15 hover:bg-[#06C167]/25 border border-[#06C167]/30 text-[#06C167] text-xs font-medium rounded-full transition-all duration-200">
+              🥡 Uber Eats
+            </a>
+          </div>
         </div>
 
         {/* Sticky nav */}
@@ -357,7 +405,6 @@ export default function MenuPage() {
             <SectionHeader id="vinhos-header" title="Vinhos Naturais" subtitle="Natural Wines" />
 
             <div className="space-y-8">
-              {/* Tinto */}
               <div>
                 <h3 className="text-nollie-wine font-medium text-sm uppercase tracking-widest mb-3 flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-nollie-wine inline-block" />
@@ -366,7 +413,6 @@ export default function MenuPage() {
                 {winesRed.map((w) => <WineItem key={`${w.name}-${w.origin}`} {...w} />)}
               </div>
 
-              {/* Branco */}
               <div>
                 <h3 className="text-nollie-gold/70 font-medium text-sm uppercase tracking-widest mb-3 flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-nollie-gold inline-block" />
@@ -375,7 +421,6 @@ export default function MenuPage() {
                 {winesWhite.map((w) => <WineItem key={`${w.name}-${w.origin}`} {...w} />)}
               </div>
 
-              {/* Rosé */}
               <div>
                 <h3 className="text-pink-400/70 font-medium text-sm uppercase tracking-widest mb-3 flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-pink-400 inline-block" />
@@ -384,7 +429,6 @@ export default function MenuPage() {
                 {winesRose.map((w) => <WineItem key={`${w.name}-${w.origin}`} {...w} />)}
               </div>
 
-              {/* Palhete */}
               <div>
                 <h3 className="text-amber-500/70 font-medium text-sm uppercase tracking-widest mb-3 flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-amber-500 inline-block" />
@@ -393,7 +437,6 @@ export default function MenuPage() {
                 {winesPalhete.map((w) => <WineItem key={`${w.name}-${w.origin}`} {...w} />)}
               </div>
 
-              {/* Orange */}
               <div>
                 <h3 className="text-orange-400/70 font-medium text-sm uppercase tracking-widest mb-3 flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-orange-400 inline-block" />
@@ -402,7 +445,6 @@ export default function MenuPage() {
                 {winesOrange.map((w) => <WineItem key={`${w.name}-${w.origin}`} {...w} />)}
               </div>
 
-              {/* Pet Nat */}
               <div>
                 <h3 className="text-nollie-cream/50 font-medium text-sm uppercase tracking-widest mb-3 flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-nollie-cream/40 inline-block" />
