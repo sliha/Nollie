@@ -9,7 +9,7 @@ const highlights = [
     desc: "Mozzarella fior di latte, molho de tomate, manjericão",
     descEn: "Mozzarella fior di latte, tomato sauce, basil",
     price: "€11,50",
-    image: "/images/pizzas-top.jpg",
+    image: "/images/nolli-img3.jpg",
     tag: "Clássica",
   },
   {
@@ -18,7 +18,7 @@ const highlights = [
     desc: "Stracciatella, bresaola, rúcula, tomate seco",
     descEn: "Stracciatella, bresaola, rocket, sun dried tomato",
     price: "€16,00",
-    image: "/images/pizza-bresaola.jpg",
+    image: "/images/nolli-img2.jpg",
     tag: "Destaque",
   },
   {
@@ -27,7 +27,7 @@ const highlights = [
     desc: "Burrata, tomate, pinhões, pesto, azeite",
     descEn: "Burrata, tomato, pine nuts, pesto, olive oil",
     price: "€13,00",
-    image: "/images/pizza-forno.jpg",
+    image: "/images/nolli-img6.jpg",
     tag: "Antipasto",
   },
   {
@@ -36,7 +36,7 @@ const highlights = [
     desc: "Gin, Campari, Vermute Tinto",
     descEn: "Gin, Campari, Red Vermouth",
     price: "€11,00",
-    image: "/images/wine-glasses.jpg",
+    image: "/images/nolli-img4.jpg",
     tag: "Cocktail",
   },
 ];

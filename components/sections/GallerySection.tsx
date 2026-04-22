@@ -2,14 +2,14 @@ import Image from "next/image";
 import RevealOnScroll from "@/components/RevealOnScroll";
 
 const photos = [
-  { src: "/images/pizza-table.jpg", alt: "Pizzas na mesa com vinho", span: "col-span-2" },
-  { src: "/images/wine-wall.jpg", alt: "Parede de vinhos naturais", span: "" },
-  { src: "/images/interior.jpg", alt: "Interior do restaurante", span: "" },
-  { src: "/images/pizza-bresaola.jpg", alt: "Pizza bresaola & stracciatella", span: "" },
-  { src: "/images/pizzas-top.jpg", alt: "Vista aérea de pizzas", span: "col-span-2" },
-  { src: "/images/wine-glasses.jpg", alt: "Copos de vinho", span: "" },
-  { src: "/images/pizza-forno.jpg", alt: "Pizza com forno a lenha", span: "" },
-  { src: "/images/hero-calzone.jpg", alt: "Calzone artesanal", span: "" },
+  { src: "/images/nolli-img1.jpg", alt: "Pizzas artesanais Nollie", span: "col-span-2" },
+  { src: "/images/nolli-img2.jpg", alt: "Mesa de pizzas e vinhos", span: "" },
+  { src: "/images/nolli-img3.jpg", alt: "Pizzas Nollie com vinho", span: "" },
+  { src: "/images/nolli-img4.jpg", alt: "Nollie Pizzeria & Wine Bar", span: "" },
+  { src: "/images/nolli-img5.jpg", alt: "Pizzas e vinhos naturais", span: "col-span-2" },
+  { src: "/images/nolli-img6.jpg", alt: "Ambiente Nollie", span: "" },
+  { src: "/images/nolli-img7.jpg", alt: "Interior do Nollie", span: "" },
+  { src: "/images/nolli-img8.jpg", alt: "Espaço Nollie", span: "" },
 ];
 
 export default function GallerySection() {

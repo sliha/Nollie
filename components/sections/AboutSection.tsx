@@ -71,8 +71,8 @@ export default function AboutSection() {
             <div className="grid grid-cols-2 gap-3">
               <div className="col-span-2 relative h-56 sm:h-64 rounded-2xl overflow-hidden group">
                 <Image
-                  src="/images/interior.jpg"
-                  alt="Interior do Nollie"
+                  src="/images/nolli-img3.jpg"
+                  alt="Pizzas Nollie"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
@@ -80,8 +80,8 @@ export default function AboutSection() {
               </div>
               <div className="relative h-40 sm:h-48 rounded-2xl overflow-hidden group">
                 <Image
-                  src="/images/wine-wall.jpg"
-                  alt="Parede de vinhos"
+                  src="/images/nolli-img1.jpg"
+                  alt="Pizzas artesanais Nollie"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
@@ -89,8 +89,8 @@ export default function AboutSection() {
               </div>
               <div className="relative h-40 sm:h-48 rounded-2xl overflow-hidden group">
                 <Image
-                  src="/images/wine-glasses.jpg"
-                  alt="Copos de vinho"
+                  src="/images/nolli-img2.jpg"
+                  alt="Mesa de pizzas e vinhos"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
